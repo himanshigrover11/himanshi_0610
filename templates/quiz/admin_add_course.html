@@ -1,0 +1,122 @@
+{% extends 'quiz/adminbase.html' %}
+{% load widget_tweaks %}
+{% block content %}
+
+<style>
+  /* Global Styling */
+  body {
+    background-color: #f7f9fc;
+  }
+
+  .card {
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-3px);
+  }
+
+  .card-header {
+    border-radius: 15px 15px 0 0;
+    font-weight: 600;
+    font-size: 1.2rem;
+  }
+
+  label {
+    font-weight: 500;
+    color: #333;
+  }
+
+  .form-control {
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    box-shadow: none;
+    transition: border-color 0.3s ease;
+  }
+
+  .form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+  }
+
+  .btn-success {
+    border-radius: 25px;
+    padding: 10px 30px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+
+  .btn-success:hover {
+    background-color: #28a745;
+    transform: scale(1.05);
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+</style>
+
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header bg-primary text-white text-center">
+          <h4 class="mb-0">Add Question</h4>
+        </div>
+        <div class="card-body">
+          <form method="POST" autocomplete="off">
+            {% csrf_token %}
+
+            <div class="form-group">
+              <label>Course</label>
+              {% render_field questionForm.courseID|attr:'required:true' class="form-control" %}
+            </div>
+
+            <div class="form-group">
+              <label>Question</label>
+              {% render_field questionForm.question|attr:'required:true' class="form-control" placeholder="What is the currency of India?" %}
+            </div>
+
+            <div class="form-group">
+              <label>Marks</label>
+              {% render_field questionForm.marks|attr:'required:true' class="form-control" placeholder="10" %}
+            </div>
+
+            <div class="form-group">
+              <label>Option 1</label>
+              {% render_field questionForm.option1|attr:'required:true' class="form-control" placeholder="Rupees" %}
+            </div>
+
+            <div class="form-group">
+              <label>Option 2</label>
+              {% render_field questionForm.option2|attr:'required:true' class="form-control" placeholder="Dollar" %}
+            </div>
+
+            <div class="form-group">
+              <label>Option 3</label>
+              {% render_field questionForm.option3|attr:'required:true' class="form-control" placeholder="Taka" %}
+            </div>
+
+            <div class="form-group">
+              <label>Option 4</label>
+              {% render_field questionForm.option4|attr:'required:true' class="form-control" placeholder="Euro" %}
+            </div>
+
+            <div class="form-group">
+              <label>Correct Answer</label>
+              {% render_field questionForm.answer|attr:'required:true' class="form-control" %}
+            </div>
+
+            <div class="text-center">
+              <button type="submit" class="btn btn-success">Add Question</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
