@@ -4,18 +4,7 @@ ExamiQue
 Purpose:
 "It removes the limitations of traditional exams like manual grading, logistical challenges, and lack of scalability."
 
-Tech Stack Overview:
 
-Layer                               Technology Used                              Why?
-
-Frontend                       HTML, CSS (with Bootstrap)              For responsive and clean UI
-
-Backend                      Django (Python-based framework)        For rapid development and security
-
-Database                                 MySQL                           To manage structured data
-
-Tools                         Postman (API Testing), GitHub             For development efficiency
-                             (Version Control), VS Code (IDE)
 
 
 
